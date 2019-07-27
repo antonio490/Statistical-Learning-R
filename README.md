@@ -1,6 +1,7 @@
 # Statistical Learning R Exercises
 
 > Standford University Course
+[https://lagunita.stanford.edu/courses/HumanitiesSciences/StatLearning/Winter2016/course/]
 <hr>
 
 ### Linear Regression 
