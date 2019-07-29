@@ -1,0 +1,34 @@
+---
+title: "Unsupervised"
+author: "Standford University"
+date: "July 29, 2019"
+output: html_document
+---
+
+
+Principal Components
+=====================
+
+We will use the `USArrests` data 
+
+
+
+```{r}
+dimnames(USArrests)
+apply(USArrests, 2, mean)
+apply(USArrests, 2, var)
+```
+
+We see that the assault has a much larger variance than the other variables. It would dominate the principal components, so we choose to standarize the variables when we preform PCA.
+
+```{r}
+pca.out=prcomp(USArrests, scale=TRUE)
+pca.out
+names(pca.out)
+biplot(pca.out, scale=0, cex=.6)
+```
+
+
+
+
+

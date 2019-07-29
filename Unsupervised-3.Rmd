@@ -1,0 +1,49 @@
+---
+title: "Unsupervised-3"
+author: "Standford University"
+date: "July 29, 2019"
+output: html_document
+---
+
+Hierarchiel Clustering
+=======================
+
+We will use the same data and use hierarchial clustering
+
+```{r}
+set.seed(101)
+x=matrix(rnorm(100*2),100,2)
+xmean=matrix(rnorm(8,sd=4),4,2)
+which=sample(1:4,100,replace = TRUE)
+x=x+xmean[which,]
+plot(x,col=which,pch=19)
+```
+
+```{r}
+hc.complete=hclust(dist(x), method="complete")
+plot(hc.complete)
+```
+
+```{r}
+hc.single=hclust(dist(x), method = "single")
+plot(hc.single)
+```
+
+```{r}
+hc.average=hclust(dist(x), method = "average")
+plot(hc.average)
+```
+
+Let's compare this with the actually clusters in the data. We will use the function  `cutree` to cut the tree at level 4.
+This will produce a vector of numbers from 1 to 4, saying wchich branch each observation is on. You will sometimes see pretty plots where the leaves of the dendogram are colored.
+
+```{r}
+hc.cut=cutree(hc.complete,4)
+table(hc.cut, which)
+table(hc.cut,km.out$cluster)
+```
+
+```{r}
+plot(hc.complete,labels=which)
+```
+

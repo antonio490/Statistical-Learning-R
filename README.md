@@ -38,5 +38,7 @@
 - CrossValidationPlot.png
   
 
+### Support vector machines
 
+- SVM.md.R
 
